@@ -1,11 +1,10 @@
 const express = require('express')
+const routerTest = require("./routes/test.routes");
 const app = express()
 
 
 app.use (express.static ("public") );
 
-app.get('/test', (req, res) => {
-  res.send('get')
-})
+app.use("/test", routerTest )
 
 module.exports = app;
