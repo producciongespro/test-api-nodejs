@@ -1,0 +1,26 @@
+{
+  "name": "test-api-nodejs",
+  "version": "1.0.0",
+  "description": "Api para pruebas en node js - express",
+  "main": "index.js",
+  "scripts": {
+    "start" : "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/producciongespro/test-api-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/producciongespro/test-api-nodejs/issues"
+  },
+  "homepage": "https://github.com/producciongespro/test-api-nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
