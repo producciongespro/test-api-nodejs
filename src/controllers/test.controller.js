@@ -16,38 +16,50 @@ exports.obtenerData = function (req, res) {
 };
 
 exports.postData = function (req, res) {
-    res.json (  
-        ImprimirInfo(req, res)
-    );
+  res.json(ImprimirInfo(req, res));
 };
 
 exports.putData = function (req, res) {
-    res.json (  
-        ImprimirInfo(req, res)
-    );
+  res.json(ImprimirInfo(req, res));
 };
 
 exports.deleteData = function (req, res) {
-    res.json (  
-        ImprimirInfo(req, res)
-    );
+  res.json(ImprimirInfo(req, res));
 };
 
+exports.patchData = function (req, res) {
+  console.log("Método", req.method);
+  console.log( "req.params", req.params);
+  res.json(
+    {
+      isOk:true,
+      idParams: req.params.id
+    }
+  )
+};
 
 
 
 function ImprimirInfo(req) {
-    console.log("Cuerpo de la petición", req.body);
+  if (req.headers.authorization) {
     console.log("authorization", req.headers.authorization);
-    const contentType = req.headers['content-type'];
-    const data = {
-      isOk: true,
-      Autorization: `${
-        req.headers.authorization ? req.headers.authorization : "No disponible"
-      }`,
-      contentType: contentType,
-      method: req.method,
-      dataBody: req.body
-    };
-    return data;    
+  }
+  console.log("Método", req.method);
+  console.log("req.query", req.query);
+  console.log("Cuerpo de la petición", req.body);
+
+  const contentType = req.headers["content-type"];
+  const data = {
+    isOk: true,
+    Autorization: `${
+      req.headers.authorization ? req.headers.authorization : "No disponible"
+    }`,
+    contentType: contentType,
+    method: req.method,
+    queryStrings: ` ${
+      Object.keys(req.query).length != 0 ? JSON.stringify(req.query) : "No disponible"
+    }`,
+    dataBody: req.body,
+  };
+  return data;
 }

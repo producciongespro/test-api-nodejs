@@ -7,6 +7,7 @@ routerTest.get("/", testCtr.obtenerData );
 routerTest.post("/", testCtr.postData );
 routerTest.put("/", testCtr.putData );
 routerTest.delete("/", testCtr.deleteData );
+routerTest.patch("/:id", testCtr.patchData );
 
 
 
