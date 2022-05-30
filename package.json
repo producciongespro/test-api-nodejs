@@ -4,7 +4,7 @@
   "description": "Api para pruebas en node js - express",
   "main": "index.js",
   "scripts": {
-    "start" : "nodemon ./src/index.js"
+    "start": "nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/producciongespro/test-api-nodejs#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

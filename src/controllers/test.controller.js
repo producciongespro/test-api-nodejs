@@ -29,16 +29,26 @@ exports.deleteData = function (req, res) {
 
 exports.patchData = function (req, res) {
   console.log("Método", req.method);
-  console.log( "req.params", req.params);
+  console.log("req.params", req.params);
+  res.json({
+    isOk: true,
+    idParams: req.params.id,
+  });
+};
+
+exports.postFile = function (req, res) {
+
   res.json(
     {
       isOk:true,
-      idParams: req.params.id
+      msj: "Archivo recibido"
     }
-  )
+  );
+  const body = req.body;
+  const doc1 = req.doc1;
+  console.log("doc1", doc1);  
+  console.log("Cuerpo", body);
 };
-
-
 
 function ImprimirInfo(req) {
   if (req.headers.authorization) {
@@ -51,13 +61,16 @@ function ImprimirInfo(req) {
   const contentType = req.headers["content-type"];
   const data = {
     isOk: true,
+    msj: "Archivo recibido con éxito",
     Autorization: `${
       req.headers.authorization ? req.headers.authorization : "No disponible"
     }`,
     contentType: contentType,
     method: req.method,
     queryStrings: ` ${
-      Object.keys(req.query).length != 0 ? JSON.stringify(req.query) : "No disponible"
+      Object.keys(req.query).length != 0
+        ? JSON.stringify(req.query)
+        : "No disponible"
     }`,
     dataBody: req.body,
   };
