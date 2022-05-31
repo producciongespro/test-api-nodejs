@@ -37,6 +37,7 @@ exports.patchData = function (req, res) {
 };
 
 exports.postFile = function (req, res) {
+  console.log("Método postFile");
 
   res.json(
     {
