@@ -36,8 +36,8 @@ exports.patchData = function (req, res) {
   });
 };
 
-exports.postFile = function (req, res) {
-  console.log("Método postFile");
+exports.sendFile = function (req, res) {
+  console.log("Método", req.method, "en controlador 'envio de archivo'");
 
   res.json(
     {
@@ -45,9 +45,8 @@ exports.postFile = function (req, res) {
       msj: "Archivo recibido"
     }
   );
-  const body = req.body;
-  const doc1 = req.doc1;
-  console.log("doc1", doc1);  
+  const body = req.body;    
+  console.log("header", req.header);  
   console.log("Cuerpo", body);
 };
 

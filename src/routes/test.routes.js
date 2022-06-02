@@ -9,9 +9,8 @@ routerTest.put("/test", testCtr.putData );
 routerTest.delete("/test", testCtr.deleteData );
 routerTest.patch("/test:id", testCtr.patchData );
 
-routerTest.post("/file", testCtr.postFile );
-
-
+routerTest.post("/file", testCtr.sendFile );
+routerTest.put("/file", testCtr.sendFile );
 
 
 module.exports = routerTest;
